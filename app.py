@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash, session, url_for, redirect
 import os
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_script import Manager
 # 获取当前html和css的路径
 from sqlalchemy import and_
 
@@ -82,4 +82,7 @@ def login() :
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.debug = True
+    manage = Manager(app)
+    manage.run()
+    #app.run(debug=True)
